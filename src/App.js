@@ -7,6 +7,7 @@ import Dummy from './jsw/page/Dummy';
 import HomePage from "./Home/Pages/HomePage"; // HomePage 컴포넌트 경로
 import LoginModal from './jsw/modal/LoginModal'; // 로그인 화면 컴포넌트
 import SignUp from "./jsw/page/SignUp"; // 회원가입 화면 컴포넌트
+import PostDetail from './ssy/PostDetail';
 
 // 데이터 불러올꺼면 docSnap.data()로 컬렉션 전부를 불러올 수 있고 필드 불러오려면 docSnap.data().name 이런식으로 불러와야함
 
@@ -35,6 +36,8 @@ function App() {
       {/* 회원가입 경로 */}
       <Route path="/signUp" element={<SignUp />} />
 
+      <Route path="/postdetail" element={<PostDetail/>} />
+      
     </Routes>
   );
 }
