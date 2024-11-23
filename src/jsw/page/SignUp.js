@@ -96,6 +96,10 @@ const SignUp = () => {
 
   const saveToFirestore = async () => {
     if (id && password && email) {
+      if(!isValidEmail(email)) {
+        alert("이메일을 다시 확인해주세요.")
+        return;
+      }
       try {
         // 문서 ID를 id로 설정
         const docRef = doc(db, "items", id); // 사용자 ID를 문서 이름으로 사용
@@ -126,7 +130,7 @@ const SignUp = () => {
         </div>
       </div>
       <button onClick={click}>console Test</button>
-      <button onClick={saveToFirestore}>click</button>
+      <button onClick={saveToFirestore}>DB에 저장</button>
       <button onClick={sendEmail}>인증번호 전송</button>
       <button onClick={verification}>인증하기</button>
     </div>
