@@ -1,9 +1,10 @@
-import React from 'react';
+import {React, useState} from 'react';
 import Header from '../Components/Header'; // 카테고리와 통합된 Header
 import BlogCard from '../Components/BlogCard';
 import '../Styles/HomePage.css'; // 스타일 파일 추가
 
 const HomePage = () => {
+
   const blogs = [
     {
       title: '2차 인터뷰 합격 후기',

@@ -4,8 +4,23 @@ import '../Styles/Header.css';
 // 이미지 경로 import
 import bellIcon from '../Assets/bell.png';
 import searchIcon from '../Assets/search.png';
+import LoginModal from '../../jsw/modal/LoginModal';
 
 const Header = () => {
+  
+  // 모달 코드
+  const [modalIsOpen, setModalIsOpen] = useState(false)
+
+    const openModal = () => {
+        setModalIsOpen(true)
+    }
+
+    const closeModal = (event) => {
+        setModalIsOpen(false)
+        // 이벤트 버블링을 막음
+        event.stopPropagation()
+    }
+
   const [activeTab, setActiveTab] = useState('트렌딩'); // 기본 활성 탭
   const underlineRef = useRef(null);
 
@@ -25,6 +40,11 @@ const Header = () => {
 
   return (
     <header className="header">
+      {/* 로그인 모달 */}
+       <LoginModal
+                isOpen={modalIsOpen}
+                onRequestClose={closeModal} />
+
       {/* 로고와 버튼 영역 */}
       <div className="header-top">
         <div className="logo">
@@ -37,7 +57,7 @@ const Header = () => {
           <button className="icon-button">
             <img src={searchIcon} alt="검색" className="icon-image" /> {/* 검색 버튼 */}
           </button>
-          <button className="login-button">로그인</button> {/* 로그인 */}
+          <button className="login-button" onClick={openModal}>로그인</button> {/* 로그인 */}
         </nav>
       </div>
 
