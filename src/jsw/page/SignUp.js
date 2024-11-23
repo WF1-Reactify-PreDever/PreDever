@@ -2,7 +2,7 @@ import React, { useState } from "react"; // useState를 import
 import styles from "../css/SignUp.module.css";
 import SignUpBox from "./SignUpBox";
 import emailjs from "emailjs-com";
-import { db } from "../firebase";
+import { db } from "../../firebase";
 import { collection, setDoc, addDoc, doc } from "firebase/firestore";
 import Header from "../component/Header";
 

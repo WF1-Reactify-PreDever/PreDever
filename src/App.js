@@ -1,5 +1,5 @@
 import './App.css';
-import SignUp from "./page/SignUp";
+import SignUp from "./jsw/page/SignUp";
 import { db } from './firebase';
 import { useEffect, useState } from 'react';
 // firestore의 메서드 import
@@ -8,8 +8,8 @@ import {
   Routes,
   Route
 } from "react-router-dom";
-import LoginModal from './modal/LoginModal';
-import Dummy from './page/Dummy';
+import LoginModal from './jsw/modal/LoginModal';
+import Dummy from './jsw/page/Dummy';
 
 // 데이터 불러올꺼면 docSnap.data()로 컬렉션 전부를 불러올 수 있고 필드 불러오려면 docSnap.data().name 이런식으로 불러와야함
 
