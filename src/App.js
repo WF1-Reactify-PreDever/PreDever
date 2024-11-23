@@ -4,6 +4,8 @@ import { db } from './firebase';
 import { useEffect, useState } from 'react';
 // firestore의 메서드 import
 import { doc, getDoc } from 'firebase/firestore';
+// getDoc는 문서이름을 랜덤으로 생성해서 저장
+// setDoc는 문서이름을 지정해서 저장 가능
 import {
   Routes,
   Route

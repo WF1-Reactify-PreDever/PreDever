@@ -1,40 +1,41 @@
 import React from 'react';
 import Modal from 'react-modal';
 import { useNavigate } from 'react-router-dom';
-import '../css/LoginModal.css';
+import styles from '../css/LoginModal.module.css'; // CSS 모듈 import
 
 const LoginModal = (props) => {
-    Modal.setAppElement('#root')
+    Modal.setAppElement('#root');
     const navigate = useNavigate();
 
     const moveToSignUp = () => {
-        navigate("/signUp")
-    }
+        navigate("/signUp");
+    };
+
     return (
-        <Modal className='main-container'
+        <Modal className={styles["main-container"]} // CSS 모듈 사용
             isOpen={props.isOpen}
             onRequestClose={props.onRequestClose}>
-            <div className='image-frame'>
-                <div className='hanseongdae-gyopyo' />
+            <div className={styles["image-frame"]}>
+                <div className={styles["hanseongdae-gyopyo"]} />
             </div>
-            <div className='flex-column-e'>
-                <div className='login'>
-                    <div className='frame'>
-                        <span className='login-1'>로그인</span>
+            <div className={styles["flex-column-e"]}>
+                <div className={styles.login}>
+                    <div className={styles.frame}>
+                        <span className={styles["login-1"]}>로그인</span>
                     </div>
-                    <div className='frame-2'>
-                        <div className='frame-3'>
-                            <div className='frame-4'>
-                                <input className='frame-input' placeholder='이메일을 입력하세요.'/>
+                    <div className={styles["frame-2"]}>
+                        <div className={styles["frame-3"]}>
+                            <div className={styles["frame-4"]}>
+                                <input className={styles["frame-input"]} placeholder='이메일을 입력하세요.' />
                             </div>
-                            <button className='frame-5'>
-                                <span className='login-button'>로그인</span>
+                            <button className={styles["frame-5"]}>
+                                <span className={styles["login-button"]}>로그인</span>
                             </button>
                         </div>
                     </div>
                 </div>
-                <div className='frame-6'>
-                    <button className='school-verification-registration' onClick={moveToSignUp}>
+                <div className={styles["frame-6"]}>
+                    <button className={styles["school-verification-registration"]} onClick={moveToSignUp}>
                         학교 인증 회원가입
                     </button>
                 </div>
