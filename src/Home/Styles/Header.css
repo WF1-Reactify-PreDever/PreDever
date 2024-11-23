@@ -1,0 +1,54 @@
+/* 기본 헤더 스타일 */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* 로고 영역 */
+  .logo h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+  }
+  
+  /* 네비게이션 영역 */
+  .nav {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* 아이콘 버튼 스타일 */
+  .icon-button {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    margin: 0 10px;
+    cursor: pointer;
+    color: #333;
+  }
+  
+  .icon-button:hover {
+    color: #007bff; /* 아이콘 버튼 호버 색상 */
+  }
+  
+  /* 로그인 버튼 스타일 */
+  .login-button {
+    padding: 6px 12px;
+    font-size: 1rem;
+    border: 1px solid #333;
+    border-radius: 20px;
+    background: none;
+    color: #333;
+    cursor: pointer;
+  }
+  
+  .login-button:hover {
+    background-color: #333;
+    color: #fff;
+  }
+  
