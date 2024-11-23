@@ -1,0 +1,17 @@
+.blog-card {
+    border: 1px solid #ddd;
+    padding: 16px;
+    margin: 16px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  .blog-title {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+  }
+  .blog-author, .blog-date, .blog-likes {
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
