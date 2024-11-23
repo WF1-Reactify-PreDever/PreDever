@@ -1,0 +1,19 @@
+/* 홈 페이지 전체 스타일 */
+.home-page {
+    padding: 0 120px; /* 좌우 여백 120px */
+    display: flex;
+    flex-direction: column;
+    background-color: #f9f9f9; /* 필요시 배경색 추가 */
+  }
+  
+  /* 메인 콘텐츠 스타일 */
+  .main-content {
+    display: flex;
+    gap: 20px; /* Sidebar와 Blog 리스트 간의 간격 */
+  }
+  
+  /* 블로그 리스트 스타일 */
+  .blog-list {
+    flex: 1; /* BlogCard가 차지할 공간 */
+  }
+  
