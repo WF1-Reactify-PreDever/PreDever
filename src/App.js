@@ -1,13 +1,20 @@
 import './App.css';
-import {
-  Routes,
-  Route
-} from "react-router-dom";
+import { useEffect, useState } from 'react';
+import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
+
+// 페이지 및 모달 import
+import SignUp from "./jsw/page/SignUp";
 import Dummy from './jsw/page/Dummy';
-import HomePage from "./Home/Pages/HomePage"; // HomePage 컴포넌트 경로
-import LoginModal from './jsw/modal/LoginModal'; // 로그인 화면 컴포넌트
-import SignUp from "./jsw/page/SignUp"; // 회원가입 화면 컴포넌트
+import LoginModal from './jsw/modal/LoginModal';
+
+// 프로필 및 포트폴리오 관련 import
+import Homepage from "./sjy_profile/page/HomePage";
+import PortfolioPage from "./sjy_profile/page/PortfolioPage";
+import ProfilePage from "./sjy_profile/page/ProfilePage";
 import PostDetail from './ssy/PostDetail';
+// Firebase 관련 import
+import { db } from './firebase';
+import { doc, getDoc } from 'firebase/firestore';
 
 // 데이터 불러올꺼면 docSnap.data()로 컬렉션 전부를 불러올 수 있고 필드 불러오려면 docSnap.data().name 이런식으로 불러와야함
 
@@ -25,10 +32,11 @@ import PostDetail from './ssy/PostDetail';
   // };
 
 function App() {
+
   return (
     <Routes>
       {/* 루트 경로: HomePage를 렌더링 */}
-      <Route path="/" element={<HomePage />} />
+      <Route path="/" element={<Homepage />} />
       
       {/* 로그인 경로 */}
       <Route path="/loginmodal" element={<LoginModal />} />
@@ -38,7 +46,23 @@ function App() {
 
       <Route path="/postdetail" element={<PostDetail/>} />
       
+      <Route path="/portfolio" element={<PortfolioPage />} />
+      <Route path="/profile" element={<ProfilePage />} />
     </Routes>
+
+    // <Router>
+    //   <Routes>
+    //     {/* 기본 페이지들 */}
+    //     <Route path='/' element={<Dummy />} />
+    //     <Route path="/signUp" element={<SignUp />} />
+    //     <Route path='/loginmodal' element={<LoginModal />} />
+
+    //     {/* 프로필 및 포트폴리오 관련 페이지들 */}
+    //     <Route path='/home' element={<Home />} />
+    //     <Route path="/portfolio" element={<PortfolioPage />} />
+    //     <Route path="/profile" element={<ProfilePage />} />
+    //   </Routes>
+    // </Router>
   );
 }
 
