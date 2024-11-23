@@ -1,17 +1,20 @@
 import './App.css';
-import SignUp from "./jsw/page/SignUp";
-import { db } from './firebase';
 import { useEffect, useState } from 'react';
-// firestore의 메서드 import
-import { doc, getDoc } from 'firebase/firestore';
-// getDoc는 문서이름을 랜덤으로 생성해서 저장
-// setDoc는 문서이름을 지정해서 저장 가능
-import {
-  Routes,
-  Route
-} from "react-router-dom";
-import LoginModal from './jsw/modal/LoginModal';
+import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
+
+// 페이지 및 모달 import
+import SignUp from "./jsw/page/SignUp";
 import Dummy from './jsw/page/Dummy';
+import LoginModal from './jsw/modal/LoginModal';
+
+// 프로필 및 포트폴리오 관련 import
+import Home from "./sjy_profile/page/HomePage";
+import PortfolioPage from "./sjy_profile/page/PortfolioPage";
+import ProfilePage from "./sjy_profile/page/ProfilePage";
+
+// Firebase 관련 import
+import { db } from './firebase';
+import { doc, getDoc } from 'firebase/firestore';
 
 // 데이터 불러올꺼면 docSnap.data()로 컬렉션 전부를 불러올 수 있고 필드 불러오려면 docSnap.data().name 이런식으로 불러와야함
 
@@ -29,14 +32,22 @@ import Dummy from './jsw/page/Dummy';
   // };
 
 function App() {
+
   return (
-    <Routes>
-      <Route path='/' element={<Dummy />}/>
-      <Route path="/signUp" element={<SignUp />} />
-      <Route path='/loginmodal' element={<LoginModal/>} />
-    </Routes>
+    <Router>
+      <Routes>
+        {/* 기본 페이지들 */}
+        <Route path='/' element={<Dummy />} />
+        <Route path="/signUp" element={<SignUp />} />
+        <Route path='/loginmodal' element={<LoginModal />} />
+
+        {/* 프로필 및 포트폴리오 관련 페이지들 */}
+        <Route path='/home' element={<Home />} />
+        <Route path="/portfolio" element={<PortfolioPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
+      </Routes>
+    </Router>
   );
-  
 }
 
 export default App;
