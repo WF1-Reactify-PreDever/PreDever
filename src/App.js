@@ -19,6 +19,7 @@ function App() {
       
       {/* 회원가입 경로 */}
       <Route path="/signUp" element={<SignUp />} />
+
     </Routes>
   );
 }
