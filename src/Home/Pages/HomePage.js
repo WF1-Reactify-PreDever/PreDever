@@ -1,8 +1,7 @@
 import React from 'react';
-import Header from '../Components/Header';
-import Sidebar from '../Components/Sidebar';
+import Header from '../Components/Header'; // 카테고리와 통합된 Header
 import BlogCard from '../Components/BlogCard';
-// import '../Styles/HomePage.css'; // 필요하다면 추가
+import '../Styles/HomePage.css'; // 스타일 파일 추가
 
 const HomePage = () => {
   const blogs = [
@@ -25,9 +24,9 @@ const HomePage = () => {
 
   return (
     <div className="home-page">
+      {/* Header에 카테고리 탭 통합 */}
       <Header />
-      <div className="main-content">
-        <Sidebar />
+      <div className="content-area">
         <div className="blog-list">
           {blogs.map((blog, index) => (
             <BlogCard key={index} {...blog} />
