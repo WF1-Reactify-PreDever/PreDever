@@ -1,0 +1,236 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* 반투명 배경 */
+    z-index: 1; /* 모달보다 아래에 위치 */
+}
+
+.main-container {
+    overflow: hidden;
+    position: fixed; /* 화면 중앙에 고정 */
+    top: 50%; /* 세로 중앙 */
+    left: 50%; /* 가로 중앙 */
+    transform: translate(-50%, -50%); /* 중앙 정렬 */
+    width: 773px;
+    height: 726px;
+    background: #ffffff;
+    border: 2px solid #e0e0e0; /* 테두리 추가 */
+    border-radius: 10px; /* 모서리 둥글게 */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
+    z-index: 2; /* overlay보다 위에 위치 */
+}
+
+.main-container,
+.main-container * {
+    box-sizing: border-box;
+}
+
+input,
+select,
+textarea,
+button {
+    outline: 0;
+}
+
+.image-frame {
+    position: absolute;
+    width: 279px;
+    height: 726px;
+    top: 0;
+    left: 0;
+    background: #f8f9fa;
+    overflow: hidden;
+}
+
+.hanseongdae-gyopyo {
+    position: relative;
+    width: 216px;
+    height: 201px;
+    margin: 262px 0 0 32px;
+    background-size: cover;
+    z-index: 3;
+    border-radius: 10px;
+}
+
+.flex-column-e {
+    position: absolute;
+    width: 441px;
+    height: 493px;
+    top: 213px;
+    left: 318px;
+    z-index: 4;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    position: relative;
+    width: 427px;
+    height: 161px;
+    margin: 0;
+    background: #ffffff;
+    z-index: 4;
+    overflow: hidden;
+}
+
+.frame {
+    align-self: stretch;
+    flex-shrink: 0;
+    position: relative;
+    min-width: 0;
+    height: 60px;
+    z-index: 5;
+    overflow: hidden;
+}
+
+.login-1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 42px;
+    height: 18px;
+    top: 25px;
+    left: 20px;
+    color: #000000;
+    font-family: Inter, var(--default-font-family);
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 18px;
+    text-align: center;
+    white-space: nowrap;
+    z-index: 6;
+}
+
+.frame-2 {
+    align-self: stretch;
+    flex-shrink: 0;
+    position: relative;
+    min-width: 0;
+    height: 101px;
+    z-index: 7;
+    overflow: hidden;
+}
+
+.frame-3 {
+    position: relative;
+    width: 406px;
+    height: 40px;
+    margin: 31px 0 0 11px;
+    z-index: 8;
+}
+
+.frame-4 {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    position: absolute;
+    width: 336px;
+    height: 40px;
+    top: 0;
+    left: 0;
+    padding: 0 20px;
+    background: #ffffff;
+    border-top: 1px solid #e8e8e8;
+    border-bottom: 1px solid #e8e8e8;
+    border-left: 1px solid #e8e8e8;
+    z-index: 9;
+    overflow: hidden;
+}
+
+.frame-input {
+    flex-shrink: 0;
+    position: absolute;
+    width: 336px;
+    height: 40px;
+    top: -1px;
+    left: -1px;
+    background: transparent;
+    padding-left: 20px;
+    border: none;
+    z-index: 11;
+    outline: none;
+}
+
+.email-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+    width: 133px;
+    height: 18px;
+    color: #bebebe;
+    font-family: Inter, var(--default-font-family);
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 18px;
+    text-align: center;
+    white-space: nowrap;
+    z-index: 10;
+}
+
+.frame-5 {
+    position: absolute;
+    width: 70px;
+    height: 40px;
+    top: 0;
+    left: 336px;
+    cursor: pointer;
+    background: #5c9af5;
+    border: none;
+    z-index: 12;
+    overflow: hidden;
+}
+
+.login-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 42px;
+    height: 18px;
+    top: 11px;
+    left: 14px;
+    color: #ffffff;
+    font-family: Inter, var(--default-font-family);
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 18px;
+    text-align: center;
+    white-space: nowrap;
+    z-index: 13;
+}
+
+.frame-6 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    position: relative;
+    width: 237px;
+    height: 49px;
+    margin: 283px 0 0 204px;
+    padding: 5px 0;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.school-verification-registration {
+    flex-shrink: 0;
+    position: relative;
+    height: 24px;
+    color: #756ab3;
+    font-family: Inter, var(--default-font-family);
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 3;
+}
