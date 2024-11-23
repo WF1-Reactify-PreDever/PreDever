@@ -18,7 +18,7 @@ import Dummy from './jsw/page/Dummy';
 // const [test, setTest] = useState()
   // // async - await로 데이터 fetch 대기
   // async function getTest() {
-  //   // document에 대한 참조 생성
+  //   / document에 대한 참조 생성
   //   const docRef = doc(db, "items", "1");
   //   // 참조에 대한 Snapshot 쿼리
   //   const docSnap = await getDoc(docRef);
