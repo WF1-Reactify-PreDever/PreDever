@@ -1,6 +1,7 @@
 .main-page {
+  padding: 0 120px; /* 좌우 여백 120px */
   align-items: center;
-  background-color: #e7e7e7;
+  background-color: #f9f9f9;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -25,8 +26,14 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  gap: 25px;
-  height: 800px;
+  gap: 30px;
   position: relative;
+  
   width: 818px;
+}
+.btnBox {
+  display: flex;               /* Flexbox 사용 */
+  justify-content: space-between; /* 버튼들을 좌우로 정렬 */
+  gap: 20px;                  /* 버튼 사이의 간격 설정 */
+  margin-top: 50px;
 }
