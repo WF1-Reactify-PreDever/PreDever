@@ -29,9 +29,6 @@ const SignUp = () => {
 
   const handleNumChange = (value) => {
     setNum(value);
-    if (verification) {
-      setCompVerifiCode(true);
-    }
   };
 
   // test 위한 함수
@@ -103,8 +100,10 @@ const SignUp = () => {
   // 인증번호 확인 함수
   const verification = () => {
     if (verificationCode === num && verificationCode !== "") {
+      setCompVerifiCode(true);
       alert("인증 되었습니다!");
     } else {
+      setCompVerifiCode(false);
       alert("인증 번호를 다시 확인해주세요.");
     }
   };
@@ -167,11 +166,12 @@ const SignUp = () => {
             onChange={handleNumChange}
             verificationCode={verificationCode}
             setCompVerifiCode={setCompVerifiCode}
+            sendEmail={sendEmail}
           />
           <div className={styles.btnBox}>
             {/* <button onClick={click}>console Test</button>
             <button onClick={saveToFirestore}>DB에 저장</button> */}
-            <button onClick={sendEmail}>인증번호 전송</button>
+            <button onClick={verification}>인증하기</button>
             {/* <button onClick={verification}>인증 테스트</button> */}
           </div>
           {/* 인증 성공 시에 계정 생성 버튼 나타남 */}

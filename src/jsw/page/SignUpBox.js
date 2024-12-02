@@ -10,16 +10,6 @@ const SignUpBox = (props) => {
     props.onChange(value); // 부모에게 입력 값을 전달
   };
 
-  const handleVerification = () => {
-    if (inputValue === props.verificationCode) {
-      props.setCompVerifiCode(true); // 인증 성공 시 true로 설정
-      alert("인증되었습니다!");
-    } else {
-      props.setCompVerifiCode(false); // 인증 실패 시 false로 설정
-      alert("인증번호가 일치하지 않습니다. 다시 확인해주세요.");
-    }
-  };
-
   return (
     <div className={style.frame}>
       {props.text === "이름" ? (
@@ -51,8 +41,8 @@ const SignUpBox = (props) => {
             className={style.id}
             onChange={handleChange}
           />
-          <button className={style.verifyButton} onClick={handleVerification}>
-            인증하기
+          <button className={style.verifyButton} onClick={props.sendEmail}>
+            인증번호 전송
           </button>
         </div>
       ) : props.text === "비밀번호 확인" ? (
