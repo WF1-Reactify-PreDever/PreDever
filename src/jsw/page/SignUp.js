@@ -12,7 +12,7 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [num, setNum] = useState("");
-  const [verificationCode, setVerificationCode] = useState("");
+  const [verificationCode, setVerificationCode] = useState(0);
   const [compVerifiCode, setCompVerifiCode] = useState(false);
   const navigation = useNavigate();
   const handleIdChange = (value) => {
@@ -90,11 +90,11 @@ const SignUp = () => {
       )
       .then(
         (response) => {
-          console.log("SUCCESS!", response.status, response.text);
+          // console.log("SUCCESS!", response.status, response.text);
           alert("인증 코드가 이메일로 전송되었습니다"); // 사용자에게 코드 알림
         },
         (err) => {
-          console.error("FAILED...", err);
+          // console.error("FAILED...", err);
           alert("이메일 전송 실패");
         }
       );
@@ -157,18 +157,29 @@ const SignUp = () => {
       <Header style={{ width: "100%" }} signUpFlag={"true"} />
       <div className={styles.posts}>
         <div className={styles["sign-up-frame"]}>
+          <div className={styles.title}>회원가입</div>
           <SignUpBox text="이름" onChange={handleIdChange} />
           <SignUpBox text="E-Mail" onChange={handleEmailChange} />
           <SignUpBox text="비밀번호" onChange={handlePasswordChange} />
           <SignUpBox text="비밀번호 확인" onChange={handlePasswordChange} />
-          <SignUpBox text="인증번호" onChange={handleNumChange} />
+          <SignUpBox
+            text="인증번호"
+            onChange={handleNumChange}
+            verificationCode={verificationCode}
+            setCompVerifiCode={setCompVerifiCode}
+          />
           <div className={styles.btnBox}>
-            <button onClick={click}>console Test</button>
-            <button onClick={saveToFirestore}>DB에 저장</button>
+            {/* <button onClick={click}>console Test</button>
+            <button onClick={saveToFirestore}>DB에 저장</button> */}
             <button onClick={sendEmail}>인증번호 전송</button>
-            <button onClick={verification}>인증 테스트</button>
-            <button onClick={saveToFirestore}>계정 생성</button>
+            {/* <button onClick={verification}>인증 테스트</button> */}
           </div>
+          {/* 인증 성공 시에 계정 생성 버튼 나타남 */}
+          {compVerifiCode === true ? (
+            <button className={styles.signUpBtn} onClick={saveToFirestore}>
+              계정 생성
+            </button>
+          ) : null}
         </div>
       </div>
     </div>

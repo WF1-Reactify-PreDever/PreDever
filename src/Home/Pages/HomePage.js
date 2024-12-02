@@ -6,9 +6,9 @@ import { useLocation } from "react-router-dom";
 
 const HomePage = () => {
   // singUp 페이지로부터 이름과 이메일을 전달받음( id, email 변수로 사용가능) jsw 추가
-  // const location = useLocation();
-  // const { id, email } = location.state || {}; // 전달된 상태를 가져옴
-  // console.log(id, email)
+  const location = useLocation();
+  const { id, email } = location.state || {}; // 전달된 상태를 가져옴
+  console.log(id, email)
 
   const blogs = [
     {

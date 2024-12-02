@@ -19,12 +19,12 @@ const LoginModal = (props) => {
 
   const handleEmail = (e) => {
     setEmail(e.target.value);
-    console.log(e.target.value);
+    // console.log(e.target.value);
   };
 
   const handlePassword = (e) => {
     setPassword(e.target.value);
-    console.log(e.target.value);
+    // console.log(e.target.value);
   };
 
   const handleLoginClick = () => {
@@ -59,12 +59,13 @@ const LoginModal = (props) => {
     if (docSnap.exists()) {
       const userData = docSnap.data(); // 문서의 데이터 가져오기
       const id = userData.id;
-      console.log(userData); // 데이터 출력
+      // console.log(userData); // 데이터 출력
       if (password !== userData.password) {
         alert("비밀번호가 틀립니다.");
         return;
       } else {
         navigate("/", { state: { id, email } });
+        props.onRequestClose(); // 원래의 모달 닫기 함수 호출
       }
       // 필요에 따라 추가 작업 수행
     } else {
