@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom"; // React Router 사용
+import { Link } from 'react-router-dom';
 import "../Styles/BlogCard.css";
 
 const BlogCard = ({ id, title, author, date, description, likes, image }) => {
@@ -21,7 +22,7 @@ const BlogCard = ({ id, title, author, date, description, likes, image }) => {
         <h3 className="blog-title">{title}</h3>
         <p className="blog-description">{description}</p>
         <div className="blog-info">
-          <span className="blog-author">by {author}</span>
+          <span className="blog-author"><Link to={`/profile/${author}`}>by {author}</Link></span>
           <span className="blog-date">{date}</span>
         </div>
         <div className="blog-likes">❤️ {likes}</div>
