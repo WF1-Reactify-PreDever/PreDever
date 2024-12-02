@@ -26,11 +26,6 @@ const Header = () => {
 
   return (
     <header className="header">
-      {/* 로그인 모달 */}
-       <LoginModal
-                isOpen={modalIsOpen}
-                onRequestClose={closeModal} />
-
       {/* 로고와 버튼 영역 */}
       <div className="header-top">
         <div className="logo">
@@ -44,7 +39,7 @@ const Header = () => {
           <button className="icon-button">
             <img src={searchIcon} alt="검색" className="icon-image" /> {/* 검색 버튼 */}
           </button>
-          <button className="login-button" onClick={openModal}>로그인</button> {/* 로그인 */}
+          <button className="login-button">로그인</button> {/* 로그인 */}
         </nav>
       </div>
 
