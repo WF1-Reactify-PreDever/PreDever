@@ -1,14 +1,31 @@
-import React from 'react';
-import '../Styles/BlogCard.css'; // 올바른 경로로 수정
+import React from "react";
+import { useNavigate } from "react-router-dom"; // React Router 사용
+import "../Styles/BlogCard.css";
 
-const BlogCard = ({ title, author, date, description, likes }) => {
+const BlogCard = ({ id, title, author, date, description, likes, image }) => {
+  const navigate = useNavigate();
+
+  // 카드 클릭 시 상세 페이지로 이동
+  const handleCardClick = () => {
+    navigate(`/posts/${id}`); // 게시물의 ID를 URL에 포함하여 상세 페이지로 이동
+  };
+
   return (
-    <div className="blog-card">
-      <h3 className="blog-title">{title}</h3>
-      <p className="blog-author">by {author}</p>
-      <p className="blog-date">{date}</p>
-      <p className="blog-description">{description}</p>
-      <div className="blog-likes">❤️ {likes} Likes</div>
+    <div className="blog-card" onClick={handleCardClick} style={{ cursor: "pointer" }}>
+      <img
+        src={image || process.env.PUBLIC_URL + "/로고3.png"} // public 폴더에서 이미지 참조
+        alt={title}
+        className="blog-image"
+      />
+      <div className="blog-content">
+        <h3 className="blog-title">{title}</h3>
+        <p className="blog-description">{description}</p>
+        <div className="blog-info">
+          <span className="blog-author">by {author}</span>
+          <span className="blog-date">{date}</span>
+        </div>
+        <div className="blog-likes">❤️ {likes}</div>
+      </div>
     </div>
   );
 };

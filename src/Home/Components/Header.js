@@ -19,10 +19,10 @@ const Header = (props) => {
     setModalIsOpen(false);
   };
 
-  const [activeTab, setActiveTab] = useState("트렌딩"); // 기본 활성 탭
+  const [activeTab, setActiveTab] = useState("최신"); // 기본 활성 탭
   const underlineRef = useRef(null);
 
-  const categories = ["트렌딩", "최신", "피드"]; // 카테고리 배열
+  const categories = ["최신", "트렌딩", "피드"]; // 카테고리 배열
 
   useEffect(() => {
     const activeTabElement = document.querySelector(".tab.active");
@@ -40,11 +40,12 @@ const Header = (props) => {
     <header className="header">
       {/* 로그인 모달 */}
       <LoginModal isOpen={modalIsOpen} onRequestClose={closeModal} />
-
+        
       {/* 로고와 버튼 영역 */}
       <div className="header-top">
         <div className="logo">
-          <h1>PreDever</h1>
+          <img src={logoImage} alt="로고" className="logo-image" /> {/* 로고 이미지 추가 */}
+          <h1 className="logo-text">PreDever</h1>
         </div>
         <nav className="nav">
           {props.signUpFlag === "true" ? null : (
