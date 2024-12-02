@@ -1,14 +1,23 @@
-import React from 'react';
-import '../Styles/BlogCard.css'; // 올바른 경로로 수정
+import React from "react";
+import "../Styles/BlogCard.css";
 
-const BlogCard = ({ title, author, date, description, likes }) => {
+const BlogCard = ({ title, author, date, description, likes, image }) => {
   return (
     <div className="blog-card">
-      <h3 className="blog-title">{title}</h3>
-      <p className="blog-author">by {author}</p>
-      <p className="blog-date">{date}</p>
-      <p className="blog-description">{description}</p>
-      <div className="blog-likes">❤️ {likes} Likes</div>
+      <img
+        src={image || process.env.PUBLIC_URL + "/로고3.png"} // public 폴더에서 이미지 참조
+        alt={title}
+        className="blog-image"
+      />
+      <div className="blog-content">
+        <h3 className="blog-title">{title}</h3>
+        <p className="blog-description">{description}</p>
+        <div className="blog-info">
+          <span className="blog-author">by {author}</span>
+          <span className="blog-date">{date}</span>
+        </div>
+        <div className="blog-likes">❤️ {likes}</div>
+      </div>
     </div>
   );
 };

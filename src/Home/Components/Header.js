@@ -4,27 +4,13 @@ import '../Styles/Header.css';
 // 이미지 경로 import
 import bellIcon from '../Assets/bell.png';
 import searchIcon from '../Assets/search.png';
-import LoginModal from '../../jsw/modal/LoginModal';
+import logoImage from '../Assets/로고3.png'; // 로고 이미지 추가
 
 const Header = () => {
-  
-  // 모달 코드
-  const [modalIsOpen, setModalIsOpen] = useState(false)
-
-    const openModal = () => {
-        setModalIsOpen(true)
-    }
-
-    const closeModal = (event) => {
-        setModalIsOpen(false)
-        // 이벤트 버블링을 막음
-        event.stopPropagation()
-    }
-
-  const [activeTab, setActiveTab] = useState('트렌딩'); // 기본 활성 탭
+  const [activeTab, setActiveTab] = useState('최신'); // 기본 활성 탭
   const underlineRef = useRef(null);
 
-  const categories = ['트렌딩', '최신', '피드']; // 카테고리 배열
+  const categories = ['최신', '트렌딩', '피드']; // 카테고리 배열
 
   useEffect(() => {
     const activeTabElement = document.querySelector('.tab.active');
@@ -48,7 +34,8 @@ const Header = () => {
       {/* 로고와 버튼 영역 */}
       <div className="header-top">
         <div className="logo">
-          <h1>PreDever</h1>
+          <img src={logoImage} alt="로고" className="logo-image" /> {/* 로고 이미지 추가 */}
+          <h1 className="logo-text">PreDever</h1>
         </div>
         <nav className="nav">
           <button className="icon-button">

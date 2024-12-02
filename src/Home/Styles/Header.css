@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   padding: 10px 20px;
-  background-color: #f9f9f9;
+  background-color: #fff;
   border-bottom: 1px solid #ddd;
 }
 
@@ -13,6 +13,17 @@
   justify-content: space-between; /* 로고와 버튼 영역을 양쪽 정렬 */
   align-items: center; /* 버튼과 로고 수직 중앙 정렬 */
   margin-bottom: 20px; /* 카테고리 탭과의 간격 */
+}
+
+.logo {
+  display: flex;
+  align-items: center; /* 이미지와 텍스트를 수직 정렬 */
+}
+
+.logo-image {
+  width: 40px; /* 로고 이미지 크기 */
+  height: 40px;
+  margin-right: 10px; /* 이미지와 텍스트 간격 */
 }
 
 .logo h1 {

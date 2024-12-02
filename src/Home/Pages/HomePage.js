@@ -1,37 +1,89 @@
-import {React, useState} from 'react';
-import Header from '../Components/Header'; // 카테고리와 통합된 Header
-import BlogCard from '../Components/BlogCard';
-import '../Styles/HomePage.css'; // 스타일 파일 추가
+// import React, { useEffect, useState } from "react";
+// import Header from "../Components/Header";
+// import BlogCard from "../Components/BlogCard";
+// import fetchPosts from "../Components/fetchPosts";
+// import "../Styles/HomePage.css";
+
+// const HomePage = () => {
+//   const [blogs, setBlogs] = useState([]);
+
+//   useEffect(() => {
+//     const loadBlogs = async () => {
+//       const posts = await fetchPosts();
+//       setBlogs(posts);
+//     };
+//     loadBlogs();
+//   }, []);
+
+//   return (
+//     <div className="home-page">
+//       <Header />
+//       <div className="content-area">
+//         <div className="blog-list">
+//           {blogs.length > 0 ? (
+//             blogs.map((blog) => (
+//               <BlogCard
+//                 key={blog.id}
+//                 title={blog.title}
+//                 author={blog.author}
+//                 date={new Date(blog.timestamp).toLocaleDateString()}
+//                 description={blog.content}
+//                 likes={blog.likes}
+//               />
+//             ))
+//           ) : (
+//             <p>블로그 게시물이 없습니다.</p>
+//           )}
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default HomePage;
+
+import React, { useEffect, useState } from "react";
+import Header from "../Components/Header";
+import BlogCard from "../Components/BlogCard";
+import fetchPosts from "../Components/fetchPosts";
+import "../Styles/HomePage.css";
 
 const HomePage = () => {
+  const [blogs, setBlogs] = useState([]);
 
-  const blogs = [
-    {
-      title: '2차 인터뷰 합격 후기',
-      author: '가온',
-      date: '6일 전',
-      description: '비전공자가 카카오에 합격한 과정!',
-      likes: 171,
-    },
-    {
-      title: 'FSD 관점으로 코드 경계 찾기',
-      author: 'teo.v',
-      date: '6일 전',
-      description: 'Feature-Slided Design에 대한 이야기',
-      likes: 65,
-    },
-    // 추가 블로그 데이터
-  ];
+  useEffect(() => {
+    const loadBlogs = async () => {
+      const posts = await fetchPosts();
+
+      // 데이터 반복하여 30개로 확장
+      const repeatedPosts = [];
+      while (repeatedPosts.length < 30) {
+        repeatedPosts.push(...posts);
+      }
+      setBlogs(repeatedPosts.slice(0, 30)); // 정확히 30개만 유지
+    };
+    loadBlogs();
+  }, []);
 
   return (
     <div className="home-page">
-      {/* Header에 카테고리 탭 통합 */}
       <Header />
       <div className="content-area">
         <div className="blog-list">
-          {blogs.map((blog, index) => (
-            <BlogCard key={index} {...blog} />
-          ))}
+          {blogs.length > 0 ? (
+            blogs.map((blog, index) => (
+              <BlogCard
+                key={`${blog.id}-${index}`} // 중복된 id를 방지하기 위해 index 추가
+                title={blog.title}
+                author={blog.author}
+                date={new Date(blog.timestamp).toLocaleDateString()}
+                description={blog.content}
+                likes={blog.likes}
+              />
+            ))
+          ) : (
+            <p>블로그 게시물이 없습니다.</p>
+          )}
         </div>
       </div>
     </div>

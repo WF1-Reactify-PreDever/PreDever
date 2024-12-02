@@ -1,17 +1,67 @@
 .blog-card {
-    border: 1px solid #ddd;
-    padding: 16px;
-    margin: 16px;
-    border-radius: 8px;
-    background: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 300px;
+  margin: 16px;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.blog-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.blog-content {
+  padding: 16px;
+}
+
+.blog-title {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  color: #333;
+  font-weight: bold;
+}
+
+.blog-description {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.blog-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: #888;
+  margin-bottom: 8px;
+}
+
+.blog-likes {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #e74c3c;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .blog-card {
+    width: 100%;
+    margin: 8px 0;
   }
-  .blog-title {
-    font-size: 1.2rem;
-    margin-bottom: 8px;
-  }
-  .blog-author, .blog-date, .blog-likes {
-    font-size: 0.9rem;
-    color: #555;
-  }
-  
+}
