@@ -38,10 +38,15 @@
   color: #666;
   margin-bottom: 16px;
   overflow: hidden;
-  text-overflow: ellipsis;
+  text-overflow: ellipsis; /* 줄임표를 표시 */
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+
+  /* 폴백 스타일 */
+  max-height: calc(1.2em * 2); /* 두 줄 높이 */
+  line-height: 1.2em; /* 줄 높이 */
+  white-space: normal; /* 텍스트가 줄 바꿈되도록 설정 */
 }
 
 .blog-info {
