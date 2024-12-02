@@ -5,6 +5,7 @@ import "../Styles/Header.css";
 import bellIcon from "../Assets/bell.png";
 import searchIcon from "../Assets/search.png";
 import LoginModal from "../../jsw/modal/LoginModal";
+import logoImage from "../Assets/로고3.png"
 
 // props 추가 jsw 수정
 const Header = (props) => {

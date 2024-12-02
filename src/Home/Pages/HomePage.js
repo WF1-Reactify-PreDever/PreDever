@@ -47,6 +47,7 @@ import Header from "../Components/Header";
 import BlogCard from "../Components/BlogCard";
 import fetchPosts from "../Components/fetchPosts";
 import "../Styles/HomePage.css";
+import { useLocation } from "react-router-dom";
 
 const HomePage = () => {
   const [blogs, setBlogs] = useState([]);
