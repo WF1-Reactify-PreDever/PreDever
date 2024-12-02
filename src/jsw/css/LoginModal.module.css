@@ -110,7 +110,7 @@ button {
     color: #000000;
     font-family: Inter, var(--default-font-family);
     font-size: 20px;
-    font-weight:bold;
+    font-weight: bold;
     line-height: 18px;
     text-align: center;
     white-space: nowrap;
@@ -205,6 +205,7 @@ button {
     overflow: hidden;
     border-radius: 5px;
     margin-left: 3px;
+    background-color: #212529; /* 버튼 배경 색상 */
 }
 
 .login-button {
@@ -217,8 +218,28 @@ button {
     top: 11px;
     left: 14px;
     color: #ffffff;
-    font-family: Inter, var(--default-font-family);
+    font-family: -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif; /* 시스템 글꼴 */
     font-size: 15px;
+    font-weight: 700;
+    line-height: 18px;
+    text-align: center;
+    white-space: nowrap;
+    z-index: 13;
+}
+
+/* 이메일 확인 버튼 */
+.check-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 42px;
+    height: 18px;
+    top: 11px;
+    left: 14px;
+    color: #ffffff;
+    font-family: -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif; /* 시스템 글꼴 */
+    font-size: 12px;
     font-weight: 700;
     line-height: 18px;
     text-align: center;
@@ -275,9 +296,10 @@ button {
     white-space: nowrap;
     z-index: 3;
     border: none;
-    font-weight: 700; /* 폰트 굵기를 더 굵게 설정 */
+    font-weight: 700;
+    /* 폰트 굵기를 더 굵게 설정 */
 }
 
 .school-verification-registration:hover {
-    cursor:pointer;
+    cursor: pointer;
 }

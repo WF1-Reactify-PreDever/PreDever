@@ -8,7 +8,7 @@ import styles from "../css/LoginModal.module.css"; // CSS 모듈 import
 const LoginModal = (props) => {
   Modal.setAppElement("#root");
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState("null");
   const [loginFlag, setLoginFlag] = useState(false);
   const [password, setPassword] = useState("");
   const [showPasswordInput, setShowPasswordInput] = useState(false);
@@ -27,14 +27,25 @@ const LoginModal = (props) => {
     // console.log(e.target.value);
   };
 
-  const handleLoginClick = () => {
+  // 이미 이메일이 있는지 확인하는 함수
+  const checkEmail = async (email) => {
+    const docRef = doc(db, "userDetail", email); // 이메일을 문서 ID로 사용
+    const docSnap = await getDoc(docRef); // 문서 가져오기
+    console.log(docSnap.exists());
+    return docSnap.exists(); // 문서가 존재하면 true, 아니면 false 반환
+  };
+
+  const handleLoginClick = async () => {
     if (loginFlag) {
       login();
     } else {
-      if (checkEmail) {
+      if (await checkEmail(email)) {
+        // console.log("check통과");
         // 로그인 버튼 클릭 시 비밀번호 입력 필드 표시
         setShowPasswordInput(true);
         setLoginFlag(true);
+      } else {
+        alert("존재하지 않는 이메일입니다. 다시 한번 확인해주세요.");
       }
     }
   };
@@ -43,14 +54,6 @@ const LoginModal = (props) => {
     setShowPasswordInput(false); // 모달 닫을 때 비밀번호 입력 필드 숨김
     setLoginFlag(false);
     props.onRequestClose(); // 원래의 모달 닫기 함수 호출
-  };
-
-  // 이미 이메일이 있는지 확인하는 함수
-  const checkEmail = async (email) => {
-    const docRef = doc(db, "userDetail", email); // 이메일을 문서 ID로 사용
-    const docSnap = await getDoc(docRef); // 문서 가져오기
-
-    return docSnap.exists(); // 문서가 존재하면 true, 아니면 false 반환
   };
 
   const login = async () => {
@@ -66,6 +69,7 @@ const LoginModal = (props) => {
       } else {
         navigate("/", { state: { id, email } });
         props.onRequestClose(); // 원래의 모달 닫기 함수 호출
+        setLoginFlag(true);
       }
       // 필요에 따라 추가 작업 수행
     } else {
@@ -96,9 +100,21 @@ const LoginModal = (props) => {
                   onChange={handleEmail}
                 />
               </div>
-              <button className={styles["frame-5"]} onClick={handleLoginClick}>
-                <span className={styles["login-button"]}>로그인</span>
-              </button>
+              {loginFlag === false ? (
+                <button
+                  className={styles["frame-5"]}
+                  onClick={handleLoginClick}
+                >
+                  <span className={styles["check-button"]}>이메일 확인</span>
+                </button>
+              ) : (
+                <button
+                  className={styles["frame-5"]}
+                  onClick={handleLoginClick}
+                >
+                  <span className={styles["login-button"]}>로그인</span>
+                </button>
+              )}
             </div>
             {showPasswordInput && ( // 비밀번호 입력 필드 표시
               <div className={styles["frame-7"]}>
