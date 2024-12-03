@@ -47,7 +47,7 @@ const Header = ({ username, isLoggedIn }) => {
             {showOptions && (
               <div className={styles.writeOptions}>
                 <Link to="/write-post" className={styles.optionLink}>포스트</Link>
-                <Link to="/write-portfolio" className={styles.optionLink}>포트폴리오</Link>
+                <Link to={`/write-portfolio/${username}`} className={styles.optionLink}>포트폴리오</Link>
               </div>
             )}
           </>

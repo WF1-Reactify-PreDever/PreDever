@@ -44,7 +44,7 @@ function App() {
         <Route path="/postdetail" element={<PostDetail />} />
         
         {/* 게시물 작성 페이지 */}
-        <Route path="/write-portfolio" element={<WritePortfolio />} />
+        <Route path="/write-portfolio/:username" element={<WritePortfolio />} />
         <Route path="/write-post" element={<WritePost />} />
       </Routes>
     </DndProvider>
