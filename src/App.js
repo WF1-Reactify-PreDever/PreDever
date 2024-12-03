@@ -15,6 +15,7 @@ import LoginModal from './jsw/modal/LoginModal';
 import Homepage from "./Home/Pages/HomePage";
 import ProfilePage from "./sjy_profile/pages/ProfilePage";
 import PostDetail from './ssy/PostDetail';
+import PostEditorPage from './ssy/PostEditorPage';
 
 // 글 작성 페이지 import
 import WritePortfolio from './sjy_profile/pages/WritePortfolio';
@@ -26,6 +27,7 @@ import { db } from './firebase';
 import { doc, getDoc } from 'firebase/firestore';
 
 function App() {
+
   return (
     <DndProvider backend={HTML5Backend}>
       <Routes>
@@ -45,6 +47,9 @@ function App() {
         <Route path="/postdetail" element={<PostDetail />} />
         
         {/* 게시물 작성 페이지 */}
+        <Route path="/posteditor" element={<PostEditorPage />} />
+        
+        {/* 포트폴리오 작성 페이지 */}
         <Route path="/write-portfolio" element={<WritePortfolio />} />
         <Route path="/write-post" element={<WritePost />} />
       </Routes>
