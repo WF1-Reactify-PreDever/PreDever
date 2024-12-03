@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 
-
 function PostDetail() {
     const { id } = useParams(); // URL에서 id 값을 가져옴
 

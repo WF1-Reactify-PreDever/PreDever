@@ -1,20 +1,26 @@
 import React from "react";
-import { createRoot } from "react-dom/client";
+import ReactDOM from "react-dom/client";
+import { Provider } from "react-redux";
+import { store } from './sjy_profile/store';  // Redux store import
 import App from "./App";
+import { BrowserRouter } from "react-router-dom"; // BrowserRouter import
 import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter } from "react-router-dom";
-import './index.css';
+import './index.css'; // 스타일 파일
 
+// 'root' 요소 가져오기
 const container = document.getElementById("root");
-const root = createRoot(container);
 
+// React 18 방식으로 루트 생성
+const root = ReactDOM.createRoot(container);
+
+// 렌더링: 리덕스 Provider와 React Router 둘 다 적용
 root.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
+  <Provider store={store}>  {/* Redux Provider로 App을 감싸기 */}
+    <BrowserRouter>  {/* 라우터로 App을 감싸기 */}
+      <App />
+    </BrowserRouter>
+  </Provider>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+// Optional: 성능 측정
 reportWebVitals();
