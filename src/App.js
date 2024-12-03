@@ -19,6 +19,7 @@ import PostDetail from './ssy/PostDetail';
 // 글 작성 페이지 import
 import WritePortfolio from './sjy_profile/pages/WritePortfolio';
 import WritePost from './sjy_profile/pages/WritePost';
+// import PortfolioPage from "./sjy_profile/page/PortfolioPage";
 
 // Firebase 관련 import
 import { db } from './firebase';
