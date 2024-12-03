@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom"; // React Router 사용
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "../Styles/BlogCard.css";
 
@@ -8,7 +8,7 @@ const BlogCard = ({ id, title, author, date, description, likes, image }) => {
 
   // 카드 클릭 시 상세 페이지로 이동
   const handleCardClick = () => {
-    navigate(`/posts/${id}`); // 게시물의 ID를 URL에 포함하여 상세 페이지로 이동
+    navigate(`/postDetail/${id}`); // 게시물의 ID를 URL에 포함하여 상세 페이지로 이동
   };
 
   // Author 클릭 시 이벤트 버블링 방지
@@ -29,7 +29,6 @@ const BlogCard = ({ id, title, author, date, description, likes, image }) => {
         <p className="blog-description">{description}</p>
         <div className="blog-info">
           <span className="blog-author">
-            {/* Author 클릭 시 이벤트 버블링 방지 */}
             <Link to={`/profile/${author}`} onClick={handleAuthorClick}>
               by {author}
             </Link>

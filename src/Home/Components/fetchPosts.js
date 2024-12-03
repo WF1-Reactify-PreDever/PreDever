@@ -1,11 +1,18 @@
 import { collection, getDocs } from "firebase/firestore";
-import { db } from "../../firebase";
+import { db } from "../../firebase"; // Firebase 설정 파일 import
 
 const fetchPosts = async () => {
-  const postsCollection = collection(db, "posts");
-  const postSnapshot = await getDocs(postsCollection);
-  const postList = postSnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-  return postList;
+  try {
+    const querySnapshot = await getDocs(collection(db, "posts")); // 'posts' 컬렉션 읽기
+    const posts = querySnapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+    return posts;
+  } catch (error) {
+    console.error("Error fetching posts:", error);
+    return [];
+  }
 };
 
 export default fetchPosts;

@@ -51,40 +51,33 @@ import { useLocation } from "react-router-dom";
 
 const HomePage = () => {
   const [blogs, setBlogs] = useState([]);
-  // singUp 페이지로부터 이름과 이메일을 전달받음( id, email 변수로 사용가능) jsw 추가
   const location = useLocation();
-  const { id, email } = location.state || {}; // 전달된 상태를 가져옴
-  console.log(id, email)
+  const { id, email } = location.state || {}; // 전달된 상태 가져오기
 
   useEffect(() => {
     const loadBlogs = async () => {
-      const posts = await fetchPosts();
-
-      // 데이터 반복하여 30개로 확장
-      const repeatedPosts = [];
-      while (repeatedPosts.length < 30) {
-        repeatedPosts.push(...posts);
-      }
-      setBlogs(repeatedPosts.slice(0, 30)); // 정확히 30개만 유지
+      const posts = await fetchPosts(); // 파이어베이스에서 데이터 가져오기
+      setBlogs(posts); // 데이터 설정
     };
     loadBlogs();
   }, []);
 
-  
   return (
     <div className="home-page">
       <Header />
       <div className="content-area">
         <div className="blog-list">
           {blogs.length > 0 ? (
-            blogs.map((blog, index) => (
+            blogs.map((blog) => (
               <BlogCard
-                key={`${blog.id}-${index}`} // 중복된 id를 방지하기 위해 index 추가
+                key={blog.id}
+                id={blog.id} // BlogCard에 id 전달
                 title={blog.title}
                 author={blog.author}
                 date={new Date(blog.timestamp).toLocaleDateString()}
                 description={blog.content}
                 likes={blog.likes}
+                image={blog.image} // 이미지 전달 (Optional)
               />
             ))
           ) : (
